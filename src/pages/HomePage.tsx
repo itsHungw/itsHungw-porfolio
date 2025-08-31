@@ -1,5 +1,4 @@
-// src/pages/HomePage.tsx
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ExternalLink, MessageSquare } from 'lucide-react';
@@ -10,7 +9,7 @@ import ProjectCard from '../components/cards/ProjectCard';
 import { projects } from '../data/projects';
 // import { getLatestBlogPosts } from '../data/blogPosts';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
     // Lấy 3 projects nổi bật và 3 blog posts mới nhất
     const featuredProjects = projects.slice(0, 3);
     // const latestPosts = getLatestBlogPosts(3);
