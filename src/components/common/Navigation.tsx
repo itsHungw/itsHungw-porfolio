@@ -47,7 +47,44 @@ const Navigation = () => {
                         ))}
                     </div>
 
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setIsOpen(!isOpen)}
+                        className="md:hidden text-gray-300 hover:text-white transition-colors"
+                        aria-label="Toggle mobile menu"
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
+
+                {/* Mobile Navigation */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="md:hidden overflow-hidden"
+                        >
+                            <div className="px-2 pt-2 pb-3 space-y-1">
+                                {navItems.map(({ path, label, icon: Icon }) => (
+                                    <Link
+                                        key={path}
+                                        to={path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`flex items-center space-x-2 px-3 py-2 rounded-md transition-colors ${location.pathname === path
+                                            ? 'text-blue-400 bg-blue-400/10'
+                                            : 'text-gray-300 hover:text-white hover:bg-gray-800'
+                                            }`}
+                                    >
+                                        <Icon size={16} />
+                                        <span>{label}</span>
+                                    </Link>
+                                ))}
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </nav>
     );
