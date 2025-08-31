@@ -25,8 +25,8 @@ export default defineConfig({
   // Development server config
   server: {
     port: 3000,
-    open: true,
-    host: true
+    open: true, // Tự động mở browser
+    host: true  // Allow external connections
   },
 
   // Path aliases (optional)
