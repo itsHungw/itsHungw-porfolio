@@ -7,7 +7,7 @@ import type { NavItem } from '../../types';
 
 
 const navItems: NavItem[] = [
-    { path: '/vinhung-portfolio', label: 'Home', icon: User },
+    { path: '/', label: 'Home', icon: User },
     { path: '/projects', label: 'Projects', icon: Briefcase },
     { path: '/blog', label: 'Blog', icon: MessageSquare }
 ];
