@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './components/common/Navigation';
 import ScrollToTop from './components/common/ScrollToTop';
@@ -111,7 +111,7 @@ const NotFound: React.FC = () => {
 
 
             <Link
-              to="/"
+              to="/vinhung-portfolio"
               className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               <span>Go Home</span>
@@ -138,8 +138,9 @@ const App: React.FC = () => {
           {/* Main Routes */}
           <main>
             <Routes>
+              <Route path="/" element={<Navigate to="/vinhung-portfolio" replace />} />
               <Route
-                path="/"
+                path="/vinhung-portfolio"
                 element={
                   <PageWrapper>
                     <HomePage />
@@ -192,7 +193,7 @@ const App: React.FC = () => {
                 <div>
                   <h3 className="text-white font-semibold mb-4">Quick Links</h3>
                   <div className="space-y-2">
-                    <Link to="/" className="block text-gray-400 hover:text-white transition-colors text-sm">
+                    <Link to="/vinhung-portfolio" className="block text-gray-400 hover:text-white transition-colors text-sm">
                       Home
                     </Link>
                     <Link to="/projects" className="block text-gray-400 hover:text-white transition-colors text-sm">
