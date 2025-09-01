@@ -10,8 +10,9 @@ export interface Project {
 
 export interface Skill {
     name: string;
-    // level: number;
-    category: 'frontend' | 'backend' | 'tool' | 'language';
+    category: 'frontend' | 'backend' | 'tools' | 'design';
+    icon: string;
+    color: string;
 }
 
 export interface NavItem {

@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { getSkillByCategory, getCategoryTitles } from '../../data/skills';
+import { getSkillsByCategory, categoryTitles } from '../../data/skills';
 import type { Skill } from '../../types';
 
-// Component skill 
+// Component để hiển thị từng skill với icon
 const SkillItem: React.FC<{ skill: Skill; delay: number }> = ({ skill, delay }) => {
     const [ref, inView] = useInView({
         triggerOnce: true,
@@ -13,42 +12,37 @@ const SkillItem: React.FC<{ skill: Skill; delay: number }> = ({ skill, delay }) 
     });
 
     return (
-        <div ref={ref} className="mb-4">
-            {/* Skill name và level */}
-            <div className="flex justify-between items-center mb-2">
-                <span className="text-gray-300 font-medium">{skill.name}</span>
-                {/* <span className="text-blue-400 text-sm font-semibold">{skill.level}%</span> */}
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{
+                duration: 0.4,
+                delay: delay
+            }}
+            whileHover={{
+                scale: 1.05,
+                rotate: 5
+            }}
+            className="flex flex-col items-center p-4 rounded-lg bg-gray-700/30 hover:bg-gray-700/50 transition-all duration-300 cursor-pointer group/skill relative overflow-hidden"
+        >
+            {/* Skill Icon */}
+            <div className="text-3xl mb-2 group-hover/skill:scale-110 transition-transform duration-300">
+                {skill.icon}
             </div>
 
-            {/* Progress bar container */}
-            <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                <motion.div
-                    initial={{ width: 0 }}
-                    // animate={inView ? { width: `${skill.level}%` } : {}}
-                    transition={{
-                        duration: 1.2,
-                        delay: delay,
-                        ease: "easeOut"
-                    }}
-                    className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 h-2 rounded-full relative"
-                >
-                    {/* Shimmer effect */}
-                    <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        animate={{ x: ['-100%', '100%'] }}
-                        transition={{
-                            duration: 2,
-                            delay: delay + 0.5,
-                            ease: "easeInOut"
-                        }}
-                    />
-                </motion.div>
-            </div>
-        </div>
+            {/* Skill Name */}
+            <span className={`text-sm font-medium text-center ${skill.color} group-hover/skill:text-white transition-colors duration-300`}>
+                {skill.name}
+            </span>
+
+            {/* Hover glow effect */}
+            <div className="absolute inset-0 rounded-lg opacity-0 group-hover/skill:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10" />
+        </motion.div>
     );
 };
 
-
+// Component cho mỗi category của skills
 const SkillCategory: React.FC<{
     categoryKey: string;
     skills: Skill[];
@@ -65,31 +59,31 @@ const SkillCategory: React.FC<{
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-colors group"
+            className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300 group"
         >
-            {/* Category title */}
-            <div className="flex items-center mb-6">
+            {/* Category Header */}
+            <div className="flex items-center justify-between mb-6">
                 <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
-                    {getCategoryTitles[categoryKey as keyof typeof getCategoryTitles]}
+                    {categoryTitles[categoryKey as keyof typeof categoryTitles]}
                 </h3>
-                <div className="ml-auto w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
 
-            {/* Skills list */}
-            <div className="space-y-4">
+            {/* Skills Grid - 2 columns layout */}
+            <div className="grid grid-cols-2 gap-4">
                 {skills.map((skill, skillIndex) => (
                     <SkillItem
                         key={skill.name}
                         skill={skill}
-                        delay={index * 0.1 + skillIndex * 0.1}
+                        delay={index * 0.1 + skillIndex * 0.05}
                     />
                 ))}
             </div>
 
-            {/* Category icon/indicator */}
-            <div className="mt-4 pt-4 border-t border-gray-700">
+            {/* Category Footer */}
+            <div className="mt-6 pt-4 border-t border-gray-700/50">
                 <div className="text-xs text-gray-500 text-center">
-                    {skills.length} skills
+                    {skills.length} technologies
                 </div>
             </div>
         </motion.div>
@@ -102,8 +96,8 @@ const SkillsSection: React.FC = () => {
         threshold: 0.1
     });
 
-    // skills  group category
-    const skillCategories = getSkillByCategory();
+    // Lấy skills đã được group theo category
+    const skillCategories = getSkillsByCategory();
 
     return (
         <section ref={ref} className="py-20 px-4 bg-gray-900/30">
@@ -127,7 +121,7 @@ const SkillsSection: React.FC = () => {
                 </motion.div>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {Object.entries(skillCategories).map(([categoryKey, categorySkills], index) => (
                         <SkillCategory
                             key={categoryKey}
@@ -138,16 +132,19 @@ const SkillsSection: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Additional info */}
+                {/* Additional Info */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.8, delay: 0.8 }}
-                    className="text-center mt-12"
+                    className="text-center mt-16"
                 >
-                    <p className="text-gray-500 text-sm">
-                        Always learning and exploring new technologies to stay current with industry trends
-                    </p>
+                    <div className="inline-flex items-center space-x-2 bg-gray-800/30 rounded-full px-6 py-3 border border-gray-700">
+                        <span className="text-2xl">🚀</span>
+                        <p className="text-gray-400 text-sm">
+                            Always learning and exploring new technologies
+                        </p>
+                    </div>
                 </motion.div>
             </div>
         </section>

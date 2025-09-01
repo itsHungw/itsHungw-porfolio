@@ -1,43 +1,51 @@
-import type { Skill } from "../types";
+import { Skill } from "@/types";
+
 
 
 export const skills: Skill[] = [
-    //frontend
-    { name: 'React',/* level: "",*/category: 'frontend' },
-    { name: 'SCSS',/* level: "",*/category: 'frontend' },
-    { name: 'Tailwind CSS',/* level: "",*/category: 'frontend' },
+    // Frontend
+    { name: "React", category: 'frontend', icon: "⚛️", color: "text-blue-400" },
+    { name: "TypeScript", category: 'frontend', icon: "🔷", color: "text-blue-500" },
+    { name: "JavaScript", category: 'frontend', icon: "🟨", color: "text-yellow-400" },
+    { name: "Vue.js", category: 'frontend', icon: "💚", color: "text-green-400" },
+    { name: "Next.js", category: 'frontend', icon: "⚫", color: "text-gray-300" },
+    { name: "HTML5", category: 'frontend', icon: "🧡", color: "text-orange-500" },
 
-    //backend
-    { name: 'Java',/* level: "",*/category: 'backend' },
-    { name: 'Spring',/* level: "",*/category: 'backend' },
-    { name: 'MongoDB',/* level: "",*/category: 'backend' },
+    // Backend
+    { name: "Node.js", category: 'backend', icon: "🟢", color: "text-green-500" },
+    { name: "Python", category: 'backend', icon: "🐍", color: "text-yellow-500" },
+    { name: "Express.js", category: 'backend', icon: "🚀", color: "text-gray-400" },
+    { name: "MongoDB", category: 'backend', icon: "🍃", color: "text-green-600" },
+    { name: "PostgreSQL", category: 'backend', icon: "🐘", color: "text-blue-600" },
+    { name: "GraphQL", category: 'backend', icon: "💜", color: "text-pink-500" },
 
-    //tool
-    { name: 'Docker',/* level: "",*/category: 'tool' },
-    { name: 'Git',/* level: "",*/category: 'tool' },
-    { name: 'Vite',/* level: "",*/category: 'tool' },
+    // Tools & DevOps
+    { name: "Git", category: 'tools', icon: "🌳", color: "text-orange-600" },
+    { name: "Docker", category: 'tools', icon: "🐳", color: "text-blue-500" },
+    { name: "AWS", category: 'tools', icon: "☁️", color: "text-orange-400" },
+    { name: "Vercel", category: 'tools', icon: "▲", color: "text-gray-300" },
+    { name: "Webpack", category: 'tools', icon: "📦", color: "text-blue-400" },
+    { name: "Vite", category: 'tools', icon: "⚡", color: "text-purple-400" },
 
-    //languages
-    { name: 'Javascript',/* level: "",*/category: 'language' },
-    { name: 'Java',/* level: "",*/category: 'language' },
-    { name: 'Typescript',/* level: "",*/category: 'language' },
-]
+    // Design
+    { name: "Figma", category: 'design', icon: "🎨", color: "text-purple-500" },
+    { name: "Tailwind CSS", category: 'design', icon: "💨", color: "text-cyan-400" },
+    { name: "CSS3", category: 'design', icon: "🎭", color: "text-blue-500" },
+    { name: "Responsive Design", category: 'design', icon: "📱", color: "text-green-400" }
+];
 
-
-export const getSkillByCategory = () => {
+export const getSkillsByCategory = () => {
     return {
-        frontend: skills.filter(skill => skill.category === 'frontend'),
-        backend: skills.filter(skill => skill.category === 'backend'),
-        tools: skills.filter(skill => skill.category === 'tool'),
-        languages: skills.filter(skill => skill.category === 'language'),
-    }
-}
+        frontend: skills.filter(s => s.category === 'frontend'),
+        backend: skills.filter(s => s.category === 'backend'),
+        tools: skills.filter(s => s.category === 'tools'),
+        design: skills.filter(s => s.category === 'design')
+    };
+};
 
-export const getCategoryTitles = () => {
-    return {
-        frontend: 'Frontend',
-        backend: 'Backend',
-        tools: 'Tools',
-        languages: 'Languages',
-    }
-}
+export const categoryTitles = {
+    frontend: 'Frontend Development',
+    backend: 'Backend Development',
+    tools: 'Tools & DevOps',
+    design: 'Design & Styling'
+};

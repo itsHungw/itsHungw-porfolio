@@ -163,7 +163,7 @@ const HeroSection = ({
                 </motion.div>
 
                 {/* Scroll indicator */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0 }}
                     animate={inView ? { opacity: 1 } : {}}
                     transition={{ duration: 1, delay: 1.2 }}
@@ -180,7 +180,7 @@ const HeroSection = ({
                             className="w-1 h-3 bg-blue-400 rounded-full mt-2"
                         />
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     )
