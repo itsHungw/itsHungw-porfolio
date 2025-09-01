@@ -139,7 +139,7 @@ const App: React.FC = () => {
           <main>
             <Routes>
               <Route
-                path="/"
+                path="/itsHungw-porfolio"
                 element={
                   <PageWrapper>
                     <HomePage />
