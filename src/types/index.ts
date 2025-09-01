@@ -1,3 +1,5 @@
+import { ReactNode, FunctionComponent, SVGProps } from "react";
+
 export interface Project {
     id: number;
     title: string;
@@ -8,10 +10,14 @@ export interface Project {
     githubUrl: string;
 }
 
+
+export type IconType =
+    | string | FunctionComponent<SVGProps<SVGSVGElement>>;
+
 export interface Skill {
     name: string;
     category: 'frontend' | 'backend' | 'tools' | 'design';
-    icon: string;
+    icon: IconType;
     color: string;
 }
 

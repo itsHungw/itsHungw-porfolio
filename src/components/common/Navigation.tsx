@@ -27,7 +27,7 @@ const Navigation = () => {
                 <div className="flex justify-between items-center py-4">
                     {/* Logo/Brand */}
                     <Link to="/" className="text-2xl font-bold text-white hover:text-blue-400 transition-colors">
-                        Portfolio
+                        vinhung
                     </Link>
 
                     {/* PC Navigation */}

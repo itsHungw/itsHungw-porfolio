@@ -10,8 +10,8 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({
-    name = "Yo",
-    title = "Yo",
+    name = "vinhung",
+    title = "Yohguireubgneu",
     description = "Yo",
 }: HeroSectionProps) => {
 
@@ -85,10 +85,11 @@ const HeroSection = ({
                     transition={{ duration: 0.8 }}
                 >
                     <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                        Hi, I'm{" "}
+                        Welcome to {" "}
                         <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                             {name}
                         </span>
+                        page
                     </h1>
 
                     {/* Subtitle with typing effect */}
@@ -118,7 +119,7 @@ const HeroSection = ({
                     transition={{ duration: 0.8, delay: 0.7 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
                 >
-                    <motion.button
+                    {/* <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -132,7 +133,7 @@ const HeroSection = ({
                         className="border border-gray-600 hover:border-gray-500 text-gray-300 hover:text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-gray-800/50"
                     >
                         Download CV
-                    </motion.button>
+                    </motion.button> */}
                 </motion.div>
 
                 {/* Social Links */}

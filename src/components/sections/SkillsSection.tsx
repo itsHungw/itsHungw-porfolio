@@ -28,7 +28,7 @@ const SkillItem: React.FC<{ skill: Skill; delay: number }> = ({ skill, delay }) 
         >
             {/* Skill Icon */}
             <div className="text-3xl mb-2 group-hover/skill:scale-110 transition-transform duration-300">
-                {skill.icon}
+                <skill.icon className={`w-8 h-8 ${skill.color}`} />
             </div>
 
             {/* Skill Name */}
