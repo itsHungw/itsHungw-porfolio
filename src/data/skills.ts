@@ -9,7 +9,7 @@ import tailwind from '../assets/tailwindcss-icon-svgrepo-com.svg'
 import {
     SiTypescript, SiJavascript, SiHtml5,
     SiCss3, SiGraphql, SiSpring, SiGit,
-    SiDocker, SiSass, SiBootstrap,
+    SiDocker, SiSass, SiBootstrap, SiRedux
 } from "react-icons/si";
 
 export const skills: Skill[] = [
@@ -32,6 +32,7 @@ export const skills: Skill[] = [
     // { name: "AWS", category: 'tools', icon: "☁️", color: "text-orange-400" },
     // { name: "Vercel", category: 'tools', icon: "▲", color: "text-gray-300" },
     // { name: "Webpack", category: 'tools', icon: "📦", color: "text-blue-400" },
+    { name: "Redux", category: 'tools', icon: SiRedux, color: "text-purple-400" },
     { name: "Vite", category: 'tools', icon: vite, color: "text-purple-400" },
 
     // Design

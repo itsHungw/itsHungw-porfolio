@@ -50,13 +50,6 @@ const ScrollToTop: React.FC = () => {
                         className="group-hover:-translate-y-0.5 transition-transform"
                     />
 
-                    {/* Ripple effect */}
-                    <motion.div
-                        className="absolute inset-0 bg-blue-400 rounded-full"
-                        initial={{ scale: 0, opacity: 0.5 }}
-                        animate={{ scale: 1.5, opacity: 0 }}
-                        transition={{ duration: 0.6, repeat: Infinity }}
-                    />
                 </motion.button>
             )}
         </AnimatePresence>

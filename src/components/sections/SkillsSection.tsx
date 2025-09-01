@@ -140,7 +140,7 @@ const SkillsSection: React.FC = () => {
                     className="text-center mt-16"
                 >
                     <div className="inline-flex items-center space-x-2 bg-gray-800/30 rounded-full px-6 py-3 border border-gray-700">
-                        <span className="text-2xl">🚀</span>
+
                         <p className="text-gray-400 text-sm">
                             Always learning and exploring new technologies
                         </p>

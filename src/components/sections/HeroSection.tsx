@@ -1,18 +1,18 @@
 import { useInView } from 'react-intersection-observer';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
-
+import { TypeAnimation } from 'react-type-animation';
 
 interface HeroSectionProps {
     name?: string;
     title?: string;
-    description?: string;
+    // description?: string;
 }
 
 const HeroSection = ({
     name = "vinhung",
-    title = "Yohguireubgneu",
-    description = "Yo",
+    title = "I am a ",
+    // description = "Yo",
 }: HeroSectionProps) => {
 
     const [ref, inView] = useInView({
@@ -24,19 +24,19 @@ const HeroSection = ({
     const socialLinks = [
         {
             icon: Github,
-            href: "https://github.com",
+            href: "https://github.com/itsHungw",
             label: "GitHub",
             hoverColor: "hover:text-gray-300"
         },
         {
             icon: Linkedin,
-            href: "https://linkedin.com",
+            href: "https://www.linkedin.com/in/v%C4%A9nh-h%C6%B0ng-nguyen-8a6a67357/",
             label: "LinkedIn",
             hoverColor: "hover:text-blue-400"
         },
         {
             icon: Mail,
-            href: "mailto:contact@email.com",
+            href: "mailto:vinhung06vl@gmail.com",
             label: "Email",
             hoverColor: "hover:text-green-400"
         }
@@ -89,27 +89,53 @@ const HeroSection = ({
                         <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
                             {name}
                         </span>
+                        <> </>
                         page
                     </h1>
 
+
+
+
+
                     {/* Subtitle with typing effect */}
-                    <motion.h2
+                    {/* <motion.h2
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="text-2xl md:text-3xl text-blue-400 font-medium mb-4"
                     >
                         {title}
-                    </motion.h2>
+                    </motion.h2> */}
 
-                    <motion.p
+                    <span className='text-2xl md:text-3xl text-white-400 font-medium mb-4'>
+                        {title}
+                        <TypeAnimation
+                            sequence={[
+                                'Student', // Types 'One'
+                                500, // Waits 1s
+                                'Backend developer', // Deletes 'One' and types 'Two'
+                                500, // Waits 2s
+                                'FPTer',
+                                500,
+                                () => {
+                                    console.log('Sequence completed');
+                                },
+                            ]}
+                            wrapper="span"
+                            cursor={true}
+                            repeat={Infinity}
+                        // style={{ fontSize: '2em', display: 'inline-block' }}
+                        />
+                    </span>
+
+                    {/* <motion.p
                         initial={{ opacity: 0 }}
                         animate={inView ? { opacity: 1 } : {}}
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
                     >
                         {description}
-                    </motion.p>
+                    </motion.p> */}
                 </motion.div>
 
                 {/* CTA Buttons */}

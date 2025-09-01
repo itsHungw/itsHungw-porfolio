@@ -1,4 +1,4 @@
-// src/pages/ProjectsPage.tsx
+
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -6,7 +6,7 @@ import { Search, Filter, Grid, List, MessageSquare } from 'lucide-react';
 import ProjectCard from '../components/cards/ProjectCard';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
-import type { Project } from '../types';
+// import type { Project } from '../types';
 
 // Type cho view mode
 type ViewMode = 'grid' | 'list';

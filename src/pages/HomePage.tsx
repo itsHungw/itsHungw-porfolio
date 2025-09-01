@@ -7,6 +7,7 @@ import SkillsSection from '../components/sections/SkillsSection';
 import ProjectCard from '../components/cards/ProjectCard';
 // import BlogCard from '../components/cards/BlogCard';
 import { projects } from '../data/projects';
+import AboutSection from '@/components/sections/AboutSection';
 // import { getLatestBlogPosts } from '../data/blogPosts';
 
 const HomePage = () => {
@@ -18,6 +19,10 @@ const HomePage = () => {
         <div className="pt-20">
             {/* Hero Section */}
             <HeroSection />
+
+            {/* About Section */}
+            <AboutSection />
+
 
             {/* Skills Section */}
             <SkillsSection />

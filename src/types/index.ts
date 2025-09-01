@@ -1,4 +1,4 @@
-import { ReactNode, FunctionComponent, SVGProps } from "react";
+import { FunctionComponent, SVGProps } from "react";
 
 export interface Project {
     id: number;

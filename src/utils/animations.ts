@@ -1,4 +1,4 @@
-// src/utils/animations.ts
+
 import type { Variants } from 'framer-motion';
 
 // Common animation variants
