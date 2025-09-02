@@ -7,10 +7,10 @@ export const projects: Project[] = [
     {
         id: 1,
         title: 'Quizzer',
-        description: 'quiz platform',
-        technologies: ['react CRA, react router, redux, bootstrap'],
+        description: 'A modern quiz-based e-learning platform with full CRUD capabilities for quiz management and interactive learning.',
+        technologies: ['react CRA, react router, redux, bootstrap,...'],
         image: Quizzer,
-        projectUrl: 'afafd',
+        projectUrl: 'https://itshungw.github.io/demo-Quizzer/',
         githubUrl: 'https://github.com/itsHungw/quizzer-react',
 
     },

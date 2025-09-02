@@ -72,11 +72,11 @@ const ProjectsPage: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-12 bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700"
+                    className="mb-12 bg-gray-800/50 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-gray-700"
                 >
-                    <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+                    <div className="flex flex-col gap-4 sm:gap-6 lg:flex-row lg:items-center lg:justify-between">
                         {/* Search Input */}
-                        <div className="relative flex-1 max-w-md">
+                        <div className="relative w-full lg:max-w-md">
                             <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                             <input
                                 type="text"
@@ -88,16 +88,15 @@ const ProjectsPage: React.FC = () => {
                         </div>
 
                         {/* Technology Filter */}
-                        <div className="flex items-center space-x-4">
+                        <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-2 sm:gap-4 items-stretch sm:items-center">
                             <div className="flex items-center space-x-2">
                                 <Filter size={16} className="text-gray-400" />
                                 <span className="text-gray-300 text-sm">Filter by:</span>
                             </div>
-
                             <select
                                 value={selectedTech}
                                 onChange={(e) => setSelectedTech(e.target.value)}
-                                className="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+                                className="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-white focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors w-full sm:w-auto"
                             >
                                 {allTechnologies.map(tech => (
                                     <option key={tech} value={tech}>
@@ -108,10 +107,10 @@ const ProjectsPage: React.FC = () => {
                         </div>
 
                         {/* View Mode Toggle */}
-                        <div className="flex items-center space-x-2 bg-gray-700 rounded-lg p-1">
+                        <div className="flex w-full sm:w-auto items-center space-x-2 bg-gray-700 rounded-lg p-1 justify-center">
                             <button
                                 onClick={() => setViewMode('grid')}
-                                className={`p-2 rounded transition-colors ${viewMode === 'grid'
+                                className={`p-2 rounded transition-colors w-full sm:w-auto ${viewMode === 'grid'
                                     ? 'bg-blue-600 text-white'
                                     : 'text-gray-400 hover:text-white'
                                     }`}
@@ -121,7 +120,7 @@ const ProjectsPage: React.FC = () => {
                             </button>
                             <button
                                 onClick={() => setViewMode('list')}
-                                className={`p-2 rounded transition-colors ${viewMode === 'list'
+                                className={`p-2 rounded transition-colors w-full sm:w-auto ${viewMode === 'list'
                                     ? 'bg-blue-600 text-white'
                                     : 'text-gray-400 hover:text-white'
                                     }`}

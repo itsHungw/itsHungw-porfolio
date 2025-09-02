@@ -34,7 +34,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
 
 
     return (
-        <section ref={ref} className="py-20 px-4">
+        <section ref={ref} className="py-14 px-2 sm:py-20 sm:px-4 overflow-x-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <motion.div
@@ -55,7 +55,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                 </motion.div>
 
                 {/* Main Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
 
 
                     {/* Right Side - Avatar */}
@@ -65,13 +65,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="relative flex justify-center lg:justify-start"
                     >
-                        <div className="relative">
+                        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
                             {/* Avatar Container */}
-                            <div className="relative w-80 h-80 md:w-96 md:h-96">
-
+                            <div className="relative w-full aspect-square">
                                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-500/20 rounded-2xl transform rotate-6"></div>
                                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 via-pink-500/20 to-emerald-500/20 rounded-2xl transform -rotate-6"></div>
-
                                 {/* Avatar Image */}
                                 <motion.div
                                     whileHover={{ scale: 1.05, rotate: 2 }}
@@ -84,11 +82,8 @@ const AboutSection: React.FC<AboutSectionProps> = ({
                                         className="w-full h-full object-cover"
                                         loading="lazy"
                                     />
-
-
                                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/20 via-transparent to-transparent"></div>
                                 </motion.div>
-
                             </div>
                         </div>
                     </motion.div>
